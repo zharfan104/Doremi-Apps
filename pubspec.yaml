@@ -25,6 +25,7 @@ dependencies:
   pinput: ^0.1.10
   cached_network_image: ^1.1.1
   flutter_swiper: ^1.1.6
+  flutter_icons: ^0.2.5
   
 
   # The following adds the Cupertino Icons font to your application.
@@ -63,11 +64,16 @@ flutter:
     - assets/images/photo1.png
     - assets/images/photo2.png
     - assets/images/photo3.png
+    - assets/images/gonzalo.png
+    - assets/images/qrcode.png
+    - assets/images/anthony.png
   
   fonts:
     - family: BwNistaGeometricDEMO
       fonts:
         - asset: assets/fonts/BwNistaGeometricDEMORegular.woff
+        - asset: assets/fonts/BwNistaGeometricDEMOBold.woff
+        - asset: assets/fonts/BwNistaGeometricDEMOExtraBold.woff
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
