@@ -1,9 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:izievent/partials/drawer.dart';
 import 'package:izievent/settings/HexColor.dart';
+import 'package:izievent/tabs/accountTabs.dart';
 import 'package:izievent/tabs/homeTabs.dart';
 import 'package:izievent/tabs/seachTabs.dart';
 import 'package:izievent/tabs/ticketsTabs.dart';
@@ -16,6 +19,8 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
 
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+  
   final List<Map> collections = [
     {
       "title":"Food joint",
@@ -37,10 +42,13 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+
     return DefaultTabController(
         length: 5,
         child: Scaffold(
+          key: _scaffoldKey,
           appBar: AppBar(
+            leading: Icon(null),
             elevation: 0,
             iconTheme: IconThemeData(
               color: Colors.white
@@ -48,18 +56,25 @@ class _HomePageState extends State<HomePage> {
             actions: <Widget>[
               Padding(
                 padding: EdgeInsets.only(right: 20),
-                child: Icon(Icons.menu, size: 30, color: Colors.white,),
+                child: IconButton(
+                  onPressed: () =>  _scaffoldKey.currentState.openDrawer(),
+                  icon: Icon(Icons.menu, size: 30, color: Colors.white,),
+                )
               )
             ],
-            backgroundColor: HexColor("C52127"),
+            backgroundColor: HexColor("C52127")
           ),
+          drawer: DrawerCustom(),
+          //endDrawer: DrawerCustom(),
+          drawerScrimColor: HexColor("C52127").withOpacity(0.3),
+          drawerEdgeDragWidth: 100,
           body: TabBarView(
             children: [
               HomeTabsPage(),
               SeachTabsPage(),
               TicketTabsPage(),
               Icon(Icons.directions_bike),
-              Icon(Icons.card_giftcard),
+              AccountTabsPage(),
             ],
           ),
           bottomNavigationBar: new TabBar(

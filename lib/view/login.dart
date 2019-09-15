@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:intro_views_flutter/UI/page.dart';
 import 'package:izievent/settings/HexColor.dart';
+import 'package:izievent/view/home.dart';
 import 'package:izievent/view/newpassword.dart';
 import 'package:izievent/view/register.dart';
 import 'package:izievent/view/resetpassword.dart';
@@ -86,7 +88,8 @@ class _LoginPageState extends State<LoginPage> {
                                 borderRadius: BorderRadius.circular(34),
                               ),
                               onPressed: () async {
-                                 Navigator.of(context).pushNamedAndRemoveUntil('/home', (Route<dynamic> route) => false);
+                                
+                                Navigator.of(context).pushNamedAndRemoveUntil('/home', (Route<dynamic> route) => false);
                               },
                               padding: EdgeInsets.all(15),
                               color: HexColor("C52127"),
@@ -160,4 +163,7 @@ class _LoginPageState extends State<LoginPage> {
       )
     );
   }
+
+ 
+
 }

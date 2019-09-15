@@ -9,22 +9,30 @@ class TicketTabsPage extends StatefulWidget {
 }
 
 class _TicketTabsPageState extends State<TicketTabsPage> {
+
+  
   @override
   Widget build(BuildContext context) {
+
+    double width = MediaQuery.of(context).size.width - 10;
+    double height = MediaQuery.of(context).size.height;
+
+
     return Scaffold(
       body: Stack(
         children: <Widget>[
           Container(
-            height: 250.0,
-            decoration: BoxDecoration(
-              color: HexColor("C52127")
+            height: height/2,
+            decoration: new BoxDecoration(
+              color: HexColor("C52127"),
+              borderRadius: BorderRadius.only(bottomLeft: Radius.circular(width/1.5))
             ),
           ),
           ListView(
             padding: EdgeInsets.only(left: 10, right: 10),
             children: <Widget>[
               SizedBox(height: 20,),
-              Container(            
+              Container(
                 child: Align(
                   alignment: AlignmentDirectional.topStart,
                   child: Text('My', style: TextStyle(
@@ -36,7 +44,7 @@ class _TicketTabsPageState extends State<TicketTabsPage> {
                 ),
               ),
               SizedBox(height: 5),
-              Container(            
+              Container(
                 child: Align(
                   alignment: AlignmentDirectional.topStart,
                   child: Text('Tickets', style: TextStyle(
@@ -67,9 +75,10 @@ class _TicketTabsPageState extends State<TicketTabsPage> {
                                             right: BorderSide(width: 1.0, color: Colors.red.withOpacity(0.6) 
                                           )
                                       )),
-                                      height: 130,
-                                      padding: EdgeInsets.only(right: 10),
-                                      child : Image.asset("assets/images/photo2.png",fit : BoxFit.cover ,)
+                                      height: 140,
+                                      width: MediaQuery.of(context).size.width/3,
+                                      padding: EdgeInsets.only(right: 5),
+                                      child : Image.asset("assets/images/photo1.png",fit : BoxFit.cover ,) 
                                     ),
                                     Container(
                                       alignment: Alignment.centerLeft,
@@ -77,12 +86,21 @@ class _TicketTabsPageState extends State<TicketTabsPage> {
                                       child: Column(
                                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                                         children: <Widget>[
-                                          Text('New York Party Week,', style: TextStyle(
-                                            fontSize: 12,
-                                            fontWeight: FontWeight.w800,
-                                            color: HexColor("252525")
-                                          )),
-                                          Align(
+                                          Container(
+                                            height: 50,
+                                            width: ((MediaQuery.of(context).size.width/3)*2) - 100,
+                                            child : Text('New York Party Week', style: TextStyle(
+                                                fontSize: 15,
+                                                fontWeight: FontWeight.w800,
+                                                color: HexColor("252525"),
+                                              ),
+                                              //softWrap: true,
+                                              overflow: TextOverflow.clip,
+                                            )
+                                          ),
+                                          Container(
+                                            height: 25,
+                                            width: ((MediaQuery.of(context).size.width/3)*2) - 100,
                                             child :Row(
                                               mainAxisAlignment: MainAxisAlignment.start,
                                               children: <Widget>[
@@ -94,12 +112,19 @@ class _TicketTabsPageState extends State<TicketTabsPage> {
                                               ],
                                             )
                                           ),
-                                          Text("4:00pm, Tuesday", style: TextStyle(
-                                            fontSize: 14,
-                                            color: HexColor("252525")
-                                          )),
-                                          SizedBox(height: 20,),
-                                          Text('by Knokdown...')
+                                          Container(
+                                            height: 25,
+                                            width: ((MediaQuery.of(context).size.width/3)*2) - 100,
+                                            child : Text("4:00pm, Tuesday", style: TextStyle(
+                                              fontSize: 14,
+                                              color: HexColor("252525")
+                                            ))
+                                          ),
+                                          Container(
+                                            height: 30,
+                                            width: ((MediaQuery.of(context).size.width/3)*2) - 100,
+                                            child : Text('by Knokdown...')
+                                          )
                                         ],
                                       ),
                                     ),
@@ -107,10 +132,15 @@ class _TicketTabsPageState extends State<TicketTabsPage> {
                                       padding: EdgeInsets.all(5),
                                       child: Column(
                                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                        children: <Widget>[
+                                          children: <Widget>[
                                           Icon(FontAwesomeIcons.heartbeat, color: HexColor("C52127") ),
-                                          Container(
-                                            child : Card(
+                                          Card(
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius: BorderRadius.circular(30),
+                                            ),
+                                            elevation: 3,
+                                            child: Container(
+                                              height: 35,                                              
                                               child: Image.asset("assets/images/qrcode.png"),
                                             )
                                           )
@@ -137,9 +167,10 @@ class _TicketTabsPageState extends State<TicketTabsPage> {
                                             right: BorderSide(width: 1.0, color: Colors.red.withOpacity(0.6) 
                                           )
                                       )),
-                                      height: 130,
-                                      padding: EdgeInsets.only(right: 10),
-                                      child : Image.asset("assets/images/anthony.png",fit : BoxFit.cover ,)
+                                      height: 140,
+                                      width: MediaQuery.of(context).size.width/3,
+                                      padding: EdgeInsets.only(right: 5),
+                                      child : Image.asset("assets/images/photo2.png",fit : BoxFit.cover ,) 
                                     ),
                                     Container(
                                       alignment: Alignment.centerLeft,
@@ -147,12 +178,21 @@ class _TicketTabsPageState extends State<TicketTabsPage> {
                                       child: Column(
                                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                                         children: <Widget>[
-                                          Text('New York Party Week,', style: TextStyle(
-                                            fontSize: 12,
-                                            fontWeight: FontWeight.w800,
-                                            color: HexColor("252525")
-                                          )),
-                                          Align(
+                                          Container(
+                                            height: 50,
+                                            width: ((MediaQuery.of(context).size.width/3)*2) - 100,
+                                            child : Text('New York Party Week', style: TextStyle(
+                                                fontSize: 15,
+                                                fontWeight: FontWeight.w800,
+                                                color: HexColor("252525"),
+                                              ),
+                                              //softWrap: true,
+                                              overflow: TextOverflow.clip,
+                                            )
+                                          ),
+                                          Container(
+                                            height: 25,
+                                            width: ((MediaQuery.of(context).size.width/3)*2) - 100,
                                             child :Row(
                                               mainAxisAlignment: MainAxisAlignment.start,
                                               children: <Widget>[
@@ -164,12 +204,19 @@ class _TicketTabsPageState extends State<TicketTabsPage> {
                                               ],
                                             )
                                           ),
-                                          Text("4:00pm, Tuesday", style: TextStyle(
-                                            fontSize: 14,
-                                            color: HexColor("252525")
-                                          )),
-                                          SizedBox(height: 20,),
-                                          Text('by Knokdown...')
+                                          Container(
+                                            height: 25,
+                                            width: ((MediaQuery.of(context).size.width/3)*2) - 100,
+                                            child : Text("4:00pm, Tuesday", style: TextStyle(
+                                              fontSize: 14,
+                                              color: HexColor("252525")
+                                            ))
+                                          ),
+                                          Container(
+                                            height: 30,
+                                            width: ((MediaQuery.of(context).size.width/3)*2) - 100,
+                                            child : Text('by Knokdown...')
+                                          )
                                         ],
                                       ),
                                     ),
@@ -177,10 +224,15 @@ class _TicketTabsPageState extends State<TicketTabsPage> {
                                       padding: EdgeInsets.all(5),
                                       child: Column(
                                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                        children: <Widget>[
+                                          children: <Widget>[
                                           Icon(FontAwesomeIcons.heartbeat, color: HexColor("C52127") ),
-                                          Container(
-                                            child : Card(
+                                          Card(
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius: BorderRadius.circular(30),
+                                            ),
+                                            elevation: 3,
+                                            child: Container(
+                                              height: 35,                                              
                                               child: Image.asset("assets/images/qrcode.png"),
                                             )
                                           )
@@ -191,8 +243,7 @@ class _TicketTabsPageState extends State<TicketTabsPage> {
                                   ],
                                 ),
                               ),
-                          ),
-                          
+                          )
                         ]
                       )
                     )
@@ -205,4 +256,5 @@ class _TicketTabsPageState extends State<TicketTabsPage> {
       ),
     );
   }
+  
 }

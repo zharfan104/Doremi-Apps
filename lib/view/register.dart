@@ -94,7 +94,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                 borderRadius: BorderRadius.circular(34),
                               ),
                               onPressed: () async {
-                                //await _login({'email' : emailController.text, 'password' : passwordController.text});
+                                Navigator.of(context).pushNamedAndRemoveUntil('/filter', (Route<dynamic> route) => false);
                               },
                               padding: EdgeInsets.all(15),
                               color: HexColor("C52127"),

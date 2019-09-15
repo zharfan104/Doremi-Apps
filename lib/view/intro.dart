@@ -34,6 +34,9 @@ class IntroPage extends StatelessWidget {
       pages: [
         PageViewModel(
           decoration: PageDecoration(
+            dotsDecorator: DotsDecorator(
+              // shape: ShapeBo
+            ),
             imageFlex: 1,
             bodyFlex: 1,
             titleTextStyle: TextStyle(            
@@ -51,7 +54,7 @@ class IntroPage extends StatelessWidget {
             color: HexColor("C52127"),
             child: Text('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ', 
                       style: TextStyle(
-                        color: Colors.grey,
+                        color: Colors.white60,
                         fontSize: 16
                       )
                     ),
@@ -80,7 +83,7 @@ class IntroPage extends StatelessWidget {
             color: HexColor("C52127"),
             child: Text('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ', 
                       style: TextStyle(
-                        color: Colors.grey,
+                        color:Colors.white60,
                         fontSize: 16
                       )
                     ),

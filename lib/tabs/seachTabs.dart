@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:izievent/settings/HexColor.dart';
+import 'package:izievent/view/detailsevent.dart';
 
 class SeachTabsPage extends StatefulWidget {
   SeachTabsPage({Key key}) : super(key: key);
@@ -10,16 +11,27 @@ class SeachTabsPage extends StatefulWidget {
 }
 
 class _SeachTabsPageState extends State<SeachTabsPage> {
+  
+  double h;
+  double w;
 
   @override
   Widget build(BuildContext context) {
+
+    double width = MediaQuery.of(context).size.width - 10;
+    double height = MediaQuery.of(context).size.height;
+
+    w = width;
+    h = height;
+
     return Scaffold(
       body: Stack(
         children: <Widget>[
-           Container(
-            height: 250.0,
-            decoration: BoxDecoration(
-              color: HexColor("C52127")
+          Container(
+            height: height/2,
+            decoration: new BoxDecoration(
+              color: HexColor("C52127"),
+              borderRadius: BorderRadius.only(bottomLeft: Radius.circular(width/1.5))
             ),
           ),
           ListView(
@@ -35,6 +47,9 @@ class _SeachTabsPageState extends State<SeachTabsPage> {
                       ),
                       contentPadding: EdgeInsets.only(left: 20, top: 12, right: 12, bottom: 12),
                       border: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Colors.transparent, width: 1.0,
+                          ),
                           borderRadius: BorderRadius.circular(15),
                       ),
                       hintText: "Tape here",
@@ -121,748 +136,7 @@ class _SeachTabsPageState extends State<SeachTabsPage> {
                   children: <Widget>[
                     Container(
                       child: Column(
-                        children: <Widget>[
-                          Card(
-                            elevation: 1,
-                            child: Container(
-                                padding: EdgeInsets.all(0),
-                                width: MediaQuery.of(context).size.width - 10,
-                                height: 120,
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                  children: <Widget>[
-                                    Container(
-                                      width: MediaQuery.of(context).size.width/4,
-                                      child : Image.asset("assets/images/photo2.png",fit : BoxFit.contain, width: MediaQuery.of(context).size.width/4 ,)
-                                    ),
-                                    Container(
-                                      alignment: Alignment.centerLeft,
-                                      padding: EdgeInsets.all(15),
-                                      child: Column(
-                                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                        children: <Widget>[
-                                          Text('New York Party Week', style: TextStyle(
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w800,
-                                            color: HexColor("252525")
-                                          )),
-                                          Align(
-                                            child :Row(
-                                              mainAxisAlignment: MainAxisAlignment.start,
-                                              children: <Widget>[
-                                                Align( alignment: Alignment.centerLeft, child : Icon(FontAwesomeIcons.mapMarkerAlt, size: 15,)),
-                                                Text('New York, USA', style: TextStyle(
-                                                  fontSize: 14,
-                                                  color: HexColor("252525")
-                                                )),
-                                              ],
-                                            )
-                                          ),
-                                          Text("4:00pm, Tuesday", style: TextStyle(
-                                            fontSize: 14,
-                                            color: HexColor("252525")
-                                          )),
-                                          SizedBox(height: 20,),
-                                          Text('by Knokdown...')
-                                        ],
-                                      ),
-                                    ),
-                                    Container(
-                                      padding: EdgeInsets.all(5),
-                                      decoration: BoxDecoration(
-                                      border: Border(
-                                          left: BorderSide(width: 1.0, color: Colors.grey.withOpacity(0.6) 
-                                        )
-                                      )),
-                                      child: Column(
-                                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                        children: <Widget>[
-                                          Icon(FontAwesomeIcons.heart),
-                                          SizedBox(height: 16,),
-                                          Text('02', style: TextStyle(
-                                            fontSize: 25,
-                                            fontWeight: FontWeight.w600,
-                                            color: HexColor("C52127")
-                                          )),
-                                          Text('Nov', style: TextStyle(
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.w600,
-                                            color: HexColor("252525")
-                                          )),
-                                        ],
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                          ),
-                          Card(
-                            elevation: 1,
-                            child: Container(
-                                padding: EdgeInsets.all(0),
-                                width: MediaQuery.of(context).size.width - 10,
-                                height: 120,
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                  children: <Widget>[
-                                    Container(
-                                      width: MediaQuery.of(context).size.width/4,
-                                      child : Image.asset("assets/images/photo2.png",fit : BoxFit.contain, width: MediaQuery.of(context).size.width/4 ,)
-                                    ),
-                                    Container(
-                                      alignment: Alignment.centerLeft,
-                                      padding: EdgeInsets.all(15),
-                                      child: Column(
-                                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                        children: <Widget>[
-                                          Text('New York Party Week', style: TextStyle(
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w800,
-                                            color: HexColor("252525")
-                                          )),
-                                          Align(
-                                            child :Row(
-                                              mainAxisAlignment: MainAxisAlignment.start,
-                                              children: <Widget>[
-                                                Align( alignment: Alignment.centerLeft, child : Icon(FontAwesomeIcons.mapMarkerAlt, size: 15,)),
-                                                Text('New York, USA', style: TextStyle(
-                                                  fontSize: 14,
-                                                  color: HexColor("252525")
-                                                )),
-                                              ],
-                                            )
-                                          ),
-                                          Text("4:00pm, Tuesday", style: TextStyle(
-                                            fontSize: 14,
-                                            color: HexColor("252525")
-                                          )),
-                                          SizedBox(height: 20,),
-                                          Text('by Knokdown...')
-                                        ],
-                                      ),
-                                    ),
-                                    Container(
-                                      padding: EdgeInsets.all(5),
-                                      decoration: BoxDecoration(
-                                      border: Border(
-                                          left: BorderSide(width: 1.0, color: Colors.grey.withOpacity(0.6) 
-                                        )
-                                      )),
-                                      child: Column(
-                                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                        children: <Widget>[
-                                          Icon(FontAwesomeIcons.heart),
-                                          SizedBox(height: 16,),
-                                          Text('02', style: TextStyle(
-                                            fontSize: 25,
-                                            fontWeight: FontWeight.w600,
-                                            color: HexColor("C52127")
-                                          )),
-                                          Text('Nov', style: TextStyle(
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.w600,
-                                            color: HexColor("252525")
-                                          )),
-                                        ],
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                          ),
-                          Card(
-                            elevation: 1,
-                            child: Container(
-                                padding: EdgeInsets.all(0),
-                                width: MediaQuery.of(context).size.width - 10,
-                                height: 120,
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                  children: <Widget>[
-                                    Container(
-                                      width: MediaQuery.of(context).size.width/4,
-                                      child : Image.asset("assets/images/photo2.png",fit : BoxFit.contain, width: MediaQuery.of(context).size.width/4 ,)
-                                    ),
-                                    Container(
-                                      alignment: Alignment.centerLeft,
-                                      padding: EdgeInsets.all(15),
-                                      child: Column(
-                                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                        children: <Widget>[
-                                          Text('New York Party Week', style: TextStyle(
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w800,
-                                            color: HexColor("252525")
-                                          )),
-                                          Align(
-                                            child :Row(
-                                              mainAxisAlignment: MainAxisAlignment.start,
-                                              children: <Widget>[
-                                                Align( alignment: Alignment.centerLeft, child : Icon(FontAwesomeIcons.mapMarkerAlt, size: 15,)),
-                                                Text('New York, USA', style: TextStyle(
-                                                  fontSize: 14,
-                                                  color: HexColor("252525")
-                                                )),
-                                              ],
-                                            )
-                                          ),
-                                          Text("4:00pm, Tuesday", style: TextStyle(
-                                            fontSize: 14,
-                                            color: HexColor("252525")
-                                          )),
-                                          SizedBox(height: 20,),
-                                          Text('by Knokdown...')
-                                        ],
-                                      ),
-                                    ),
-                                    Container(
-                                      padding: EdgeInsets.all(5),
-                                      decoration: BoxDecoration(
-                                      border: Border(
-                                          left: BorderSide(width: 1.0, color: Colors.grey.withOpacity(0.6) 
-                                        )
-                                      )),
-                                      child: Column(
-                                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                        children: <Widget>[
-                                          Icon(FontAwesomeIcons.heart),
-                                          SizedBox(height: 16,),
-                                          Text('02', style: TextStyle(
-                                            fontSize: 25,
-                                            fontWeight: FontWeight.w600,
-                                            color: HexColor("C52127")
-                                          )),
-                                          Text('Nov', style: TextStyle(
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.w600,
-                                            color: HexColor("252525")
-                                          )),
-                                        ],
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                          ),
-                          Card(
-                            elevation: 1,
-                            child: Container(
-                                padding: EdgeInsets.all(0),
-                                width: MediaQuery.of(context).size.width - 10,
-                                height: 120,
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                  children: <Widget>[
-                                    Container(
-                                      width: MediaQuery.of(context).size.width/4,
-                                      child : Image.asset("assets/images/photo2.png",fit : BoxFit.contain, width: MediaQuery.of(context).size.width/4 ,)
-                                    ),
-                                    Container(
-                                      alignment: Alignment.centerLeft,
-                                      padding: EdgeInsets.all(15),
-                                      child: Column(
-                                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                        children: <Widget>[
-                                          Text('New York Party Week', style: TextStyle(
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w800,
-                                            color: HexColor("252525")
-                                          )),
-                                          Align(
-                                            child :Row(
-                                              mainAxisAlignment: MainAxisAlignment.start,
-                                              children: <Widget>[
-                                                Align( alignment: Alignment.centerLeft, child : Icon(FontAwesomeIcons.mapMarkerAlt, size: 15,)),
-                                                Text('New York, USA', style: TextStyle(
-                                                  fontSize: 14,
-                                                  color: HexColor("252525")
-                                                )),
-                                              ],
-                                            )
-                                          ),
-                                          Text("4:00pm, Tuesday", style: TextStyle(
-                                            fontSize: 14,
-                                            color: HexColor("252525")
-                                          )),
-                                          SizedBox(height: 20,),
-                                          Text('by Knokdown...')
-                                        ],
-                                      ),
-                                    ),
-                                    Container(
-                                      padding: EdgeInsets.all(5),
-                                      decoration: BoxDecoration(
-                                      border: Border(
-                                          left: BorderSide(width: 1.0, color: Colors.grey.withOpacity(0.6) 
-                                        )
-                                      )),
-                                      child: Column(
-                                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                        children: <Widget>[
-                                          Icon(FontAwesomeIcons.heart),
-                                          SizedBox(height: 16,),
-                                          Text('02', style: TextStyle(
-                                            fontSize: 25,
-                                            fontWeight: FontWeight.w600,
-                                            color: HexColor("C52127")
-                                          )),
-                                          Text('Nov', style: TextStyle(
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.w600,
-                                            color: HexColor("252525")
-                                          )),
-                                        ],
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                          ),
-                          Card(
-                            elevation: 1,
-                            child: Container(
-                                padding: EdgeInsets.all(0),
-                                width: MediaQuery.of(context).size.width - 10,
-                                height: 120,
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                  children: <Widget>[
-                                    Container(
-                                      width: MediaQuery.of(context).size.width/4,
-                                      child : Image.asset("assets/images/photo2.png",fit : BoxFit.contain, width: MediaQuery.of(context).size.width/4 ,)
-                                    ),
-                                    Container(
-                                      alignment: Alignment.centerLeft,
-                                      padding: EdgeInsets.all(15),
-                                      child: Column(
-                                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                        children: <Widget>[
-                                          Text('New York Party Week', style: TextStyle(
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w800,
-                                            color: HexColor("252525")
-                                          )),
-                                          Align(
-                                            child :Row(
-                                              mainAxisAlignment: MainAxisAlignment.start,
-                                              children: <Widget>[
-                                                Align( alignment: Alignment.centerLeft, child : Icon(FontAwesomeIcons.mapMarkerAlt, size: 15,)),
-                                                Text('New York, USA', style: TextStyle(
-                                                  fontSize: 14,
-                                                  color: HexColor("252525")
-                                                )),
-                                              ],
-                                            )
-                                          ),
-                                          Text("4:00pm, Tuesday", style: TextStyle(
-                                            fontSize: 14,
-                                            color: HexColor("252525")
-                                          )),
-                                          SizedBox(height: 20,),
-                                          Text('by Knokdown...')
-                                        ],
-                                      ),
-                                    ),
-                                    Container(
-                                      padding: EdgeInsets.all(5),
-                                      decoration: BoxDecoration(
-                                      border: Border(
-                                          left: BorderSide(width: 1.0, color: Colors.grey.withOpacity(0.6) 
-                                        )
-                                      )),
-                                      child: Column(
-                                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                        children: <Widget>[
-                                          Icon(FontAwesomeIcons.heart),
-                                          SizedBox(height: 16,),
-                                          Text('02', style: TextStyle(
-                                            fontSize: 25,
-                                            fontWeight: FontWeight.w600,
-                                            color: HexColor("C52127")
-                                          )),
-                                          Text('Nov', style: TextStyle(
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.w600,
-                                            color: HexColor("252525")
-                                          )),
-                                        ],
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                          ),
-                          Card(
-                            elevation: 1,
-                            child: Container(
-                                padding: EdgeInsets.all(0),
-                                width: MediaQuery.of(context).size.width - 10,
-                                height: 120,
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                  children: <Widget>[
-                                    Container(
-                                      width: MediaQuery.of(context).size.width/4,
-                                      child : Image.asset("assets/images/photo2.png",fit : BoxFit.contain, width: MediaQuery.of(context).size.width/4 ,)
-                                    ),
-                                    Container(
-                                      alignment: Alignment.centerLeft,
-                                      padding: EdgeInsets.all(15),
-                                      child: Column(
-                                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                        children: <Widget>[
-                                          Text('New York Party Week', style: TextStyle(
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w800,
-                                            color: HexColor("252525")
-                                          )),
-                                          Align(
-                                            child :Row(
-                                              mainAxisAlignment: MainAxisAlignment.start,
-                                              children: <Widget>[
-                                                Align( alignment: Alignment.centerLeft, child : Icon(FontAwesomeIcons.mapMarkerAlt, size: 15,)),
-                                                Text('New York, USA', style: TextStyle(
-                                                  fontSize: 14,
-                                                  color: HexColor("252525")
-                                                )),
-                                              ],
-                                            )
-                                          ),
-                                          Text("4:00pm, Tuesday", style: TextStyle(
-                                            fontSize: 14,
-                                            color: HexColor("252525")
-                                          )),
-                                          SizedBox(height: 20,),
-                                          Text('by Knokdown...')
-                                        ],
-                                      ),
-                                    ),
-                                    Container(
-                                      padding: EdgeInsets.all(5),
-                                      decoration: BoxDecoration(
-                                      border: Border(
-                                          left: BorderSide(width: 1.0, color: Colors.grey.withOpacity(0.6) 
-                                        )
-                                      )),
-                                      child: Column(
-                                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                        children: <Widget>[
-                                          Icon(FontAwesomeIcons.heart),
-                                          SizedBox(height: 16,),
-                                          Text('02', style: TextStyle(
-                                            fontSize: 25,
-                                            fontWeight: FontWeight.w600,
-                                            color: HexColor("C52127")
-                                          )),
-                                          Text('Nov', style: TextStyle(
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.w600,
-                                            color: HexColor("252525")
-                                          )),
-                                        ],
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                          ),
-                          Card(
-                            elevation: 1,
-                            child: Container(
-                                padding: EdgeInsets.all(0),
-                                width: MediaQuery.of(context).size.width - 10,
-                                height: 120,
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                  children: <Widget>[
-                                    Container(
-                                      width: MediaQuery.of(context).size.width/4,
-                                      child : Image.asset("assets/images/photo2.png",fit : BoxFit.contain, width: MediaQuery.of(context).size.width/4 ,)
-                                    ),
-                                    Container(
-                                      alignment: Alignment.centerLeft,
-                                      padding: EdgeInsets.all(15),
-                                      child: Column(
-                                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                        children: <Widget>[
-                                          Text('New York Party Week', style: TextStyle(
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w800,
-                                            color: HexColor("252525")
-                                          )),
-                                          Align(
-                                            child :Row(
-                                              mainAxisAlignment: MainAxisAlignment.start,
-                                              children: <Widget>[
-                                                Align( alignment: Alignment.centerLeft, child : Icon(FontAwesomeIcons.mapMarkerAlt, size: 15,)),
-                                                Text('New York, USA', style: TextStyle(
-                                                  fontSize: 14,
-                                                  color: HexColor("252525")
-                                                )),
-                                              ],
-                                            )
-                                          ),
-                                          Text("4:00pm, Tuesday", style: TextStyle(
-                                            fontSize: 14,
-                                            color: HexColor("252525")
-                                          )),
-                                          SizedBox(height: 20,),
-                                          Text('by Knokdown...')
-                                        ],
-                                      ),
-                                    ),
-                                    Container(
-                                      padding: EdgeInsets.all(5),
-                                      decoration: BoxDecoration(
-                                      border: Border(
-                                          left: BorderSide(width: 1.0, color: Colors.grey.withOpacity(0.6) 
-                                        )
-                                      )),
-                                      child: Column(
-                                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                        children: <Widget>[
-                                          Icon(FontAwesomeIcons.heart),
-                                          SizedBox(height: 16,),
-                                          Text('02', style: TextStyle(
-                                            fontSize: 25,
-                                            fontWeight: FontWeight.w600,
-                                            color: HexColor("C52127")
-                                          )),
-                                          Text('Nov', style: TextStyle(
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.w600,
-                                            color: HexColor("252525")
-                                          )),
-                                        ],
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                          ),
-                          Card(
-                            elevation: 1,
-                            child: Container(
-                                padding: EdgeInsets.all(0),
-                                width: MediaQuery.of(context).size.width - 10,
-                                height: 120,
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                  children: <Widget>[
-                                    Container(
-                                      width: MediaQuery.of(context).size.width/4,
-                                      child : Image.asset("assets/images/photo2.png",fit : BoxFit.contain, width: MediaQuery.of(context).size.width/4 ,)
-                                    ),
-                                    Container(
-                                      alignment: Alignment.centerLeft,
-                                      padding: EdgeInsets.all(15),
-                                      child: Column(
-                                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                        children: <Widget>[
-                                          Text('New York Party Week', style: TextStyle(
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w800,
-                                            color: HexColor("252525")
-                                          )),
-                                          Align(
-                                            child :Row(
-                                              mainAxisAlignment: MainAxisAlignment.start,
-                                              children: <Widget>[
-                                                Align( alignment: Alignment.centerLeft, child : Icon(FontAwesomeIcons.mapMarkerAlt, size: 15,)),
-                                                Text('New York, USA', style: TextStyle(
-                                                  fontSize: 14,
-                                                  color: HexColor("252525")
-                                                )),
-                                              ],
-                                            )
-                                          ),
-                                          Text("4:00pm, Tuesday", style: TextStyle(
-                                            fontSize: 14,
-                                            color: HexColor("252525")
-                                          )),
-                                          SizedBox(height: 20,),
-                                          Text('by Knokdown...')
-                                        ],
-                                      ),
-                                    ),
-                                    Container(
-                                      padding: EdgeInsets.all(5),
-                                      decoration: BoxDecoration(
-                                      border: Border(
-                                          left: BorderSide(width: 1.0, color: Colors.grey.withOpacity(0.6) 
-                                        )
-                                      )),
-                                      child: Column(
-                                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                        children: <Widget>[
-                                          Icon(FontAwesomeIcons.heart),
-                                          SizedBox(height: 16,),
-                                          Text('02', style: TextStyle(
-                                            fontSize: 25,
-                                            fontWeight: FontWeight.w600,
-                                            color: HexColor("C52127")
-                                          )),
-                                          Text('Nov', style: TextStyle(
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.w600,
-                                            color: HexColor("252525")
-                                          )),
-                                        ],
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                          ),
-                          Card(
-                            elevation: 1,
-                            child: Container(
-                                padding: EdgeInsets.all(0),
-                                width: MediaQuery.of(context).size.width - 10,
-                                height: 120,
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                  children: <Widget>[
-                                    Container(
-                                      width: MediaQuery.of(context).size.width/4,
-                                      child : Image.asset("assets/images/photo2.png",fit : BoxFit.contain, width: MediaQuery.of(context).size.width/4 ,)
-                                    ),
-                                    Container(
-                                      alignment: Alignment.centerLeft,
-                                      padding: EdgeInsets.all(15),
-                                      child: Column(
-                                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                        children: <Widget>[
-                                          Text('New York Party Week', style: TextStyle(
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w800,
-                                            color: HexColor("252525")
-                                          )),
-                                          Align(
-                                            child :Row(
-                                              mainAxisAlignment: MainAxisAlignment.start,
-                                              children: <Widget>[
-                                                Align( alignment: Alignment.centerLeft, child : Icon(FontAwesomeIcons.mapMarkerAlt, size: 15,)),
-                                                Text('New York, USA', style: TextStyle(
-                                                  fontSize: 14,
-                                                  color: HexColor("252525")
-                                                )),
-                                              ],
-                                            )
-                                          ),
-                                          Text("4:00pm, Tuesday", style: TextStyle(
-                                            fontSize: 14,
-                                            color: HexColor("252525")
-                                          )),
-                                          SizedBox(height: 20,),
-                                          Text('by Knokdown...')
-                                        ],
-                                      ),
-                                    ),
-                                    Container(
-                                      padding: EdgeInsets.all(5),
-                                      decoration: BoxDecoration(
-                                      border: Border(
-                                          left: BorderSide(width: 1.0, color: Colors.grey.withOpacity(0.6) 
-                                        )
-                                      )),
-                                      child: Column(
-                                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                        children: <Widget>[
-                                          Icon(FontAwesomeIcons.heart),
-                                          SizedBox(height: 16,),
-                                          Text('02', style: TextStyle(
-                                            fontSize: 25,
-                                            fontWeight: FontWeight.w600,
-                                            color: HexColor("C52127")
-                                          )),
-                                          Text('Nov', style: TextStyle(
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.w600,
-                                            color: HexColor("252525")
-                                          )),
-                                        ],
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                          ),
-                          Card(
-                            elevation: 1,
-                            child: Container(
-                                padding: EdgeInsets.all(0),
-                                width: MediaQuery.of(context).size.width - 10,
-                                height: 120,
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                  children: <Widget>[
-                                    Container(
-                                      width: MediaQuery.of(context).size.width/4,
-                                      child : Image.asset("assets/images/photo2.png",fit : BoxFit.contain, width: MediaQuery.of(context).size.width/4 ,)
-                                    ),
-                                    Container(
-                                      alignment: Alignment.centerLeft,
-                                      padding: EdgeInsets.all(15),
-                                      child: Column(
-                                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                        children: <Widget>[
-                                          Text('New York Party Week', style: TextStyle(
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w800,
-                                            color: HexColor("252525")
-                                          )),
-                                          Align(
-                                            child :Row(
-                                              mainAxisAlignment: MainAxisAlignment.start,
-                                              children: <Widget>[
-                                                Align( alignment: Alignment.centerLeft, child : Icon(FontAwesomeIcons.mapMarkerAlt, size: 15,)),
-                                                Text('New York, USA', style: TextStyle(
-                                                  fontSize: 14,
-                                                  color: HexColor("252525")
-                                                )),
-                                              ],
-                                            )
-                                          ),
-                                          Text("4:00pm, Tuesday", style: TextStyle(
-                                            fontSize: 14,
-                                            color: HexColor("252525")
-                                          )),
-                                          SizedBox(height: 20,),
-                                          Text('by Knokdown...')
-                                        ],
-                                      ),
-                                    ),
-                                    Container(
-                                      padding: EdgeInsets.all(5),
-                                      decoration: BoxDecoration(
-                                      border: Border(
-                                          left: BorderSide(width: 1.0, color: Colors.grey.withOpacity(0.6) 
-                                        )
-                                      )),
-                                      child: Column(
-                                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                        children: <Widget>[
-                                          Icon(FontAwesomeIcons.heart),
-                                          SizedBox(height: 16,),
-                                          Text('02', style: TextStyle(
-                                            fontSize: 25,
-                                            fontWeight: FontWeight.w600,
-                                            color: HexColor("C52127")
-                                          )),
-                                          Text('Nov', style: TextStyle(
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.w600,
-                                            color: HexColor("252525")
-                                          )),
-                                        ],
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                          )
-                        ],
+                        children: _getEvents(),
                       )
                     )
                   ],
@@ -902,6 +176,121 @@ class _SeachTabsPageState extends State<SeachTabsPage> {
     setState(() {
       _currentType = selectedCity;
     });
+  }
+
+  List<Widget> _getEvents() { 
+    List listings = new List<Widget>();
+    List items = ['photo1.png', 'photo2.png', 'photo0.png', 'photo3.png', 'anthony.png', 'gonzalo.png', 'photo1.png', 'photo2.png',  'photo3.png', 'anthony.png'];
+    
+    int i = 0;
+    for (i = 0; i < 10; i++) {
+      listings.add(
+        GestureDetector(
+          onTap: () => Navigator.push(context,MaterialPageRoute(builder: (context) => DetailsEvent())),
+          child : Container(
+            child: Row(
+              children: <Widget>[
+                Card(
+                  elevation: 1,
+                  child: Container(
+                      padding: EdgeInsets.all(0),
+                      width: w,
+                      height: 120,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Container(
+                            width: w/3,
+                            height: 120,
+                            child : Image.asset("assets/images/${items[i]}",fit : BoxFit.cover, width: MediaQuery.of(context).size.width/3 ,)
+                          ),
+                          Container(
+                            width: ((w/3)*2) - 80,
+                            padding: EdgeInsets.all(5),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: <Widget>[
+                                Container(
+                                  height: 40,
+                                  child : Text('New York Party Week', 
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w800,
+                                      color: HexColor("252525")
+                                    )
+                                  )
+                                ),
+                                Container(
+                                  height: 30,
+                                  child :Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: <Widget>[
+                                      Align( alignment: Alignment.centerLeft, child : Icon(FontAwesomeIcons.mapMarkerAlt, size: 15,)),
+                                      Text('New York, USA', style: TextStyle(
+                                        fontSize: 14,
+                                        color: HexColor("252525")
+                                      )),
+                                    ],
+                                  )
+                                ),
+                                Container(
+                                  height: 20,
+                                  child : Align(
+                                    alignment: Alignment.centerLeft,
+                                    child : Text("4:00pm, Tuesday", 
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                        color: HexColor("252525")
+                                      )
+                                    )
+                                  )
+                                ),
+                                Container(
+                                  height: 20,
+                                  child : Align(
+                                    alignment: Alignment.centerLeft,
+                                    child : Text('by Knokdown...')
+                                  )
+                                )
+                              ],
+                            ),
+                          ),
+                          Container(
+                            padding: EdgeInsets.all(5),
+                            decoration: BoxDecoration(
+                            border: Border(
+                                left: BorderSide(width: 1.0, color: Colors.grey.withOpacity(0.6) 
+                              )
+                            )),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: <Widget>[
+                                Icon(FontAwesomeIcons.heart),
+                                SizedBox(height: 16),
+                                Text('02', style: TextStyle(
+                                  fontSize: 25,
+                                  fontWeight: FontWeight.w600,
+                                  color: HexColor("C52127")
+                                )),
+                                Text('Nov', style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w600,
+                                  color: HexColor("252525")
+                                )),
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                )
+              ],
+            )
+          )
+        )
+      );
+    }
+    return listings;
   }
 
 }
