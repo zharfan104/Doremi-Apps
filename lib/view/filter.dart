@@ -11,6 +11,7 @@ class FilterPage extends StatefulWidget {
 }
 
 class _FilterPageState extends State<FilterPage> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
   List<Widget> _getItems() { 
     List listings = new List<Widget>();
@@ -57,7 +58,7 @@ class _FilterPageState extends State<FilterPage> {
             onPressed: () async {
             },
             padding: EdgeInsets.all(15),
-            color:  HexColor("FFF2F2"),
+            color:  HexColor("C52127"),
             child: Text('${items[i]}', style: TextStyle(
               color: HexColor("ffffff"),
               fontSize: 14,
@@ -77,23 +78,23 @@ class _FilterPageState extends State<FilterPage> {
     double height = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      appBar: AppBar(
+          key: _scaffoldKey,
+          appBar: AppBar(
+            leading: Icon(null),
             elevation: 0,
             iconTheme: IconThemeData(
               color: Colors.white
             ),
             actions: <Widget>[
               Padding(
-                padding: EdgeInsets.only(right: 20),
+                padding: EdgeInsets.only(right: 0),
                 child: IconButton(
-                  onPressed: (){
-                    
-                  },
+                  onPressed: () =>  _scaffoldKey.currentState.openDrawer(),
                   icon: Icon(Icons.menu, size: 30, color: Colors.white,),
                 )
               )
             ],
-            backgroundColor: HexColor("C52127"),
+            backgroundColor: HexColor("C52127")
           ),
           drawer: DrawerCustom(),
           drawerDragStartBehavior: DragStartBehavior.down,
@@ -109,10 +110,9 @@ class _FilterPageState extends State<FilterPage> {
                 ),
               ),
               Container(
-                padding: EdgeInsets.all(20),
+                padding: EdgeInsets.all(10),
                 child:  ListView(
                   children: <Widget>[
-                    SizedBox(height: 20),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
@@ -156,11 +156,11 @@ class _FilterPageState extends State<FilterPage> {
                       children: <Widget>[
                         Text('Places', style: TextStyle(
                             fontSize: 15,
-                            color: Colors.white
                           )
                         )
                       ],
                     ),
+                    SizedBox(height: 20,),
                     Container(
                       child: Wrap(
                         children: _getPlaces(),
@@ -168,6 +168,43 @@ class _FilterPageState extends State<FilterPage> {
                         spacing: 2,
                       ),
                     ),
+                    SizedBox(height: 20,),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: <Widget>[
+                        Container(
+                          width: (MediaQuery.of(context).size.width/2) - 25,
+                          child : OutlineButton(
+                            borderSide: BorderSide(
+                              color: HexColor("C52127"), //Color of the border
+                              style: BorderStyle.solid, //Style of the border
+                              width: 2.5, //width of the border
+                            ),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(50),
+                            ),
+                            //color: HexColor("C52127"),
+                            onPressed: (){
+                              Navigator.of(context).pushNamedAndRemoveUntil('/home', (Route<dynamic> route) => false);
+                            },
+                            child: Text('Apply', style: TextStyle(color: Colors.black),),
+                          )
+                        ),
+                        Container(
+                          width: (MediaQuery.of(context).size.width/2) - 25,
+                          child : FlatButton(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(34),
+                            ),
+                            //color: HexColor("C52127"),
+                            onPressed: (){
+                              Navigator.of(context).pushNamedAndRemoveUntil('/home', (Route<dynamic> route) => false);
+                            },
+                            child: Text('Skip', style: TextStyle(color: Colors.black),),
+                          )
+                        )
+                      ],
+                    )
                   ]
                 ),
               )

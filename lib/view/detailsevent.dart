@@ -22,7 +22,7 @@ class _DetailsEventState extends State<DetailsEvent> {
 
   Completer<GoogleMapController> _controller = Completer();
   static final CameraPosition _kGooglePlex = CameraPosition(
-    target: LatLng(37.42796133580664, -122.085749655962),
+    target: LatLng(5.3385615, -3.9585525),
     zoom: 14.4746,
   );
 
@@ -257,7 +257,8 @@ class _DetailsEventState extends State<DetailsEvent> {
                       SizedBox(height: 15,),
                       Column(
                         children: _getEvents(),
-                      )
+                      ),
+                      SizedBox(height: 50,),
 
                     ],
                   ),
@@ -285,21 +286,22 @@ class _DetailsEventState extends State<DetailsEvent> {
             ),
           ),
           Align(
-            alignment: Alignment.bottomLeft,
-            child: BottomNavigationBar(
-              backgroundColor: Colors.white54,
-              elevation: 0,
-              selectedItemColor: Colors.black,
-              items: [
-                BottomNavigationBarItem(
-                    icon: Icon(Icons.search), title: Text("Search")),
-                BottomNavigationBarItem(
-                    icon: Icon(Icons.favorite_border),
-                    title: Text("Favorites")),
-                BottomNavigationBarItem(
-                    icon: Icon(Icons.settings), title: Text("Settings")),
-              ],
-            ),
+            alignment: Alignment.bottomCenter,
+            child: Container(
+              width: w,
+              padding: EdgeInsets.only(bottom: 10, left: 30, right: 30),
+              child: RaisedButton(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(34),
+                      ),
+                      onPressed: () async {
+                        Navigator.of(context).pushNamedAndRemoveUntil('/home', (Route<dynamic> route) => false);
+                      },
+                      padding: EdgeInsets.all(15),
+                      color: HexColor("C52127"),
+                      child: Text('Buy Tickets', style: TextStyle(color: Colors.white)),
+                    ),
+            )
           )
         ],
       ),

@@ -21,11 +21,11 @@ class IntroPage extends StatelessWidget {
 
   Widget _buildImage(String a) {
     return Align(
-      child: Image.asset(
-        'assets/images/$a.png',
-      ),
-      alignment: Alignment.bottomCenter,
-    );
+          child : Image.asset(
+            'assets/images/$a.png',
+          ),
+          alignment: Alignment.bottomCenter,
+        );
   }
 
   @override
@@ -43,9 +43,6 @@ class IntroPage extends StatelessWidget {
               fontSize: 28.0,
               fontWeight: FontWeight.w600,
               color: Colors.white
-            ),
-            bodyTextStyle: TextStyle(
-              color: Colors.grey
             ),
             pageColor: HexColor("C52127")
           ),

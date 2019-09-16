@@ -88,7 +88,6 @@ class _LoginPageState extends State<LoginPage> {
                                 borderRadius: BorderRadius.circular(34),
                               ),
                               onPressed: () async {
-                                
                                 Navigator.of(context).pushNamedAndRemoveUntil('/home', (Route<dynamic> route) => false);
                               },
                               padding: EdgeInsets.all(15),

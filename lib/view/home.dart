@@ -10,6 +10,8 @@ import 'package:izievent/tabs/accountTabs.dart';
 import 'package:izievent/tabs/homeTabs.dart';
 import 'package:izievent/tabs/seachTabs.dart';
 import 'package:izievent/tabs/ticketsTabs.dart';
+import 'package:line_icons/line_icons.dart';
+
 
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
@@ -55,7 +57,7 @@ class _HomePageState extends State<HomePage> {
             ),
             actions: <Widget>[
               Padding(
-                padding: EdgeInsets.only(right: 20),
+                padding: EdgeInsets.only(right: 0),
                 child: IconButton(
                   onPressed: () =>  _scaffoldKey.currentState.openDrawer(),
                   icon: Icon(Icons.menu, size: 30, color: Colors.white,),
@@ -78,18 +80,21 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
           bottomNavigationBar: new TabBar(
+            indicator: BoxDecoration(
+              color: HexColor("FFF2F2")
+            ),
             tabs: [
               Tab(
-                icon: new Icon(FontAwesomeIcons.home),
+                icon: new Icon(LineIcons.home),
               ),
               Tab(
-                icon: new Icon(Icons.search, size: 30,),
+                icon: new Icon(LineIcons.search, size: 30,),
               ),
               Tab(
-                icon: new Icon(FontAwesomeIcons.ticketAlt, size: 30,),
+                icon: Icon(LineIcons.ticket, size: 30,),
               ),
-              Tab(icon: new Icon(FontAwesomeIcons.gift, size: 30,)),
-              Tab(icon: new Icon(Icons.account_circle, size: 30,))
+              Tab(icon: new Icon(LineIcons.gift, size: 30,)),
+              Tab(icon: new Icon(LineIcons.user, size: 30,))
             ],
             labelColor: HexColor("C52127"),
             unselectedLabelColor: Colors.grey,

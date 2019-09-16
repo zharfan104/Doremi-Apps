@@ -7,6 +7,7 @@ import 'package:izievent/settings/HexColor.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:izievent/view/detailsevent.dart';
 import 'package:izievent/view/filter.dart';
+import 'package:line_icons/line_icons.dart';
 
 class HomeTabsPage extends StatefulWidget {
   HomeTabsPage({Key key}) : super(key: key);
@@ -41,9 +42,10 @@ class _HomeTabsPageState extends State<HomeTabsPage> {
             children: <Widget>[
               SizedBox(height: 20),
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Container(            
+                  Container(
+                    padding: EdgeInsets.only(left: 20, right: 20),            
                     child: Align(
                       alignment: AlignmentDirectional.center,
                       child: Text('Popular Now', style: TextStyle(
@@ -69,8 +71,19 @@ class _HomeTabsPageState extends State<HomeTabsPage> {
               ),
               SizedBox(height: 15,),
               Container(
+                decoration: BoxDecoration(
+                  borderRadius: new BorderRadius.all(Radius.circular(50)),
+                ),
                 height: 250,
                 child: new Swiper(
+                  onTap: (index){
+                    Navigator.push(
+                      context,
+                        MaterialPageRoute(
+                          builder: (context) => DetailsEvent()
+                        )
+                    );
+                  },
                   layout: SwiperLayout.DEFAULT,
                   loop: true,
                   autoplay: true,
@@ -112,11 +125,10 @@ class _HomeTabsPageState extends State<HomeTabsPage> {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: <Widget>[
                                       Expanded(child : Text('New York Party Week', style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold, color: Colors.black))),
-                                      Expanded(
-                                        child:Row(
-                                        mainAxisAlignment: MainAxisAlignment.start,
+                                      Container(
+                                        child: Row(
                                         children: <Widget>[
-                                          Icon(FontAwesomeIcons.mapMarkerAlt),
+                                          Icon(LineIcons.map_marker),
                                           Text('New York, USA', style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: Colors.black)),
                                         ],
                                       ))
@@ -187,6 +199,9 @@ class _HomeTabsPageState extends State<HomeTabsPage> {
                   );
                 },
                 child : Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
                   elevation: 1,
                   child: Container(
                       padding: EdgeInsets.all(0),
@@ -261,7 +276,7 @@ class _HomeTabsPageState extends State<HomeTabsPage> {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: <Widget>[
-                                Icon(FontAwesomeIcons.heart),
+                                Icon(LineIcons.heart_o),
                                 SizedBox(height: 16),
                                 Text('02', style: TextStyle(
                                   fontSize: 25,

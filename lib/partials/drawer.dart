@@ -23,6 +23,7 @@ class _DrawerCustomState extends State<DrawerCustom> {
     return Drawer (        
         elevation: 16,
         child : Container(
+          
           color: HexColor("C52127").withOpacity(0.9),
           child: 
           ListView(
@@ -51,12 +52,12 @@ class _DrawerCustomState extends State<DrawerCustom> {
                           children: <Widget>[
                             Container(
                               height: 70,
-                              width:width - 220,
+                              width:width - 250,
                               child : Text('Assi Christian', style: TextStyle(color: Colors.white, fontSize: 25)),
                             ),
                             Container(
                               height: 20,
-                              width:width - 220,
+                              width:width - 250,
                               child : Text('08074391')
                             )
                           ],

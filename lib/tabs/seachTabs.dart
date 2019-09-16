@@ -18,7 +18,7 @@ class _SeachTabsPageState extends State<SeachTabsPage> {
   @override
   Widget build(BuildContext context) {
 
-    double width = MediaQuery.of(context).size.width - 10;
+    double width = MediaQuery.of(context).size.width - 30;
     double height = MediaQuery.of(context).size.height;
 
     w = width;
@@ -37,9 +37,15 @@ class _SeachTabsPageState extends State<SeachTabsPage> {
           ListView(
             children: <Widget>[
               Container(
-                margin: EdgeInsets.only(left: 16.0),
+                padding: EdgeInsets.only(left: 20, right: 20),
                 child: TextFormField(
+                  style: new TextStyle(
+                    color: Colors.white,
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold
+                  ),
                   decoration: InputDecoration(
+                      focusColor: Colors.white.withOpacity(0.4),
                       hintStyle: TextStyle(
                         color: Colors.white,
                         fontSize: 22,
@@ -48,16 +54,16 @@ class _SeachTabsPageState extends State<SeachTabsPage> {
                       contentPadding: EdgeInsets.only(left: 20, top: 12, right: 12, bottom: 12),
                       border: OutlineInputBorder(
                           borderSide: BorderSide(
-                            color: Colors.transparent, width: 1.0,
+                            color: Colors.transparent, width: 0.0,
                           ),
-                          borderRadius: BorderRadius.circular(15),
+                          borderRadius: BorderRadius.all(Radius.circular(20)),
                       ),
                       hintText: "Tape here",
                       fillColor: Colors.white.withOpacity(0.4),
                       filled: true,
                       suffixIcon: RaisedButton(
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20),
+                          borderRadius: BorderRadius.all(Radius.circular(20)),
                         ),
                         color: Colors.white,
                         child: Icon(Icons.search, color: HexColor("C52127"),size: 30,),
@@ -68,64 +74,67 @@ class _SeachTabsPageState extends State<SeachTabsPage> {
                 ),
                 ),
                 SizedBox(height: 50,),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Expanded( 
-                      child: Padding( 
-                        padding: EdgeInsets.all(5),
+                Container(
+                  padding: EdgeInsets.only(left: 20, right: 20),
+                  child : Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Expanded( 
+                        child: Padding( 
+                          padding: EdgeInsets.all(5),
+                            child : RaisedButton(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(24),
+                            ),
+                            onPressed: () async {
+                            },
+                            padding: EdgeInsets.all(15),
+                            color: Colors.transparent,
+                            child: Text('Organizers', style: TextStyle(color: HexColor("ffffff"), fontSize: 14, fontWeight: FontWeight.bold)),
+                          )
+                        )
+                      ),
+                      Expanded( 
+                        child : Padding( 
+                          padding: EdgeInsets.all(5),
                           child : RaisedButton(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(24),
-                          ),
-                          onPressed: () async {
-                          },
-                          padding: EdgeInsets.all(15),
-                          color: Colors.transparent,
-                          child: Text('Organizers', style: TextStyle(color: HexColor("ffffff"), fontSize: 14, fontWeight: FontWeight.bold)),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(24),
+                            ),
+                            onPressed: () async {
+                            },
+                            padding: EdgeInsets.all(15),
+                            color: HexColor("ffffff"),
+                            child: Text('Events', style: TextStyle(color: HexColor("C52127"), fontSize: 14, fontWeight: FontWeight.bold)),
+                          )
                         )
-                      )
-                    ),
-                    Expanded( 
-                      child : Padding( 
-                        padding: EdgeInsets.all(5),
-                        child : RaisedButton(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(24),
-                          ),
-                          onPressed: () async {
-                          },
-                          padding: EdgeInsets.all(15),
-                          color: HexColor("ffffff"),
-                          child: Text('Events', style: TextStyle(color: HexColor("C52127"), fontSize: 14, fontWeight: FontWeight.bold)),
-                        )
-                      )
-                    ),
-                    Expanded( 
-                      child : Padding(
-                        padding: EdgeInsets.all(5),
-                        child : Container(
-                          decoration: BoxDecoration(
-                            borderRadius: new BorderRadius.all(Radius.circular(20.0)),
-                            color: Colors.white
-                          ),
-                          child : Center( 
-                            child : DropdownButton(
-                              style: TextStyle(
-                                backgroundColor: Colors.white,
-                                color: HexColor("C52127")
-                              ),
-                              iconSize: 30,
-                              iconEnabledColor: HexColor("C52127"),
-                              value: _currentType,
-                              items: _dropDownMenuItems,
-                              onChanged: changedDropDownItem,
+                      ),
+                      Expanded( 
+                        child : Padding(
+                          padding: EdgeInsets.all(5),
+                          child : Container(
+                            decoration: BoxDecoration(
+                              borderRadius: new BorderRadius.all(Radius.circular(20.0)),
+                              color: Colors.white
+                            ),
+                            child : Center( 
+                              child : DropdownButton(
+                                style: TextStyle(
+                                  backgroundColor: Colors.white,
+                                  color: HexColor("C52127")
+                                ),
+                                iconSize: 30,
+                                iconEnabledColor: HexColor("C52127"),
+                                value: _currentType,
+                                items: _dropDownMenuItems,
+                                onChanged: changedDropDownItem,
+                              )
                             )
                           )
                         )
                       )
-                    )
-                  ],
+                    ],
+                  )
                 ),
                 SizedBox(height: 20,),
                 Center(
@@ -135,6 +144,7 @@ class _SeachTabsPageState extends State<SeachTabsPage> {
                 Column(
                   children: <Widget>[
                     Container(
+                      padding: EdgeInsets.only(left: 20, right: 20),
                       child: Column(
                         children: _getEvents(),
                       )
@@ -191,10 +201,13 @@ class _SeachTabsPageState extends State<SeachTabsPage> {
             child: Row(
               children: <Widget>[
                 Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
                   elevation: 1,
                   child: Container(
                       padding: EdgeInsets.all(0),
-                      width: w,
+                      width: w - 30,
                       height: 120,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -227,7 +240,7 @@ class _SeachTabsPageState extends State<SeachTabsPage> {
                                     children: <Widget>[
                                       Align( alignment: Alignment.centerLeft, child : Icon(FontAwesomeIcons.mapMarkerAlt, size: 15,)),
                                       Text('New York, USA', style: TextStyle(
-                                        fontSize: 14,
+                                        fontSize: 12,
                                         color: HexColor("252525")
                                       )),
                                     ],
@@ -239,7 +252,7 @@ class _SeachTabsPageState extends State<SeachTabsPage> {
                                     alignment: Alignment.centerLeft,
                                     child : Text("4:00pm, Tuesday", 
                                       style: TextStyle(
-                                        fontSize: 14,
+                                        fontSize: 12,
                                         color: HexColor("252525")
                                       )
                                     )
@@ -249,7 +262,9 @@ class _SeachTabsPageState extends State<SeachTabsPage> {
                                   height: 20,
                                   child : Align(
                                     alignment: Alignment.centerLeft,
-                                    child : Text('by Knokdown...')
+                                    child : Text('by Knokdown...', style: TextStyle(
+                                      fontSize: 12,
+                                    ))
                                   )
                                 )
                               ],

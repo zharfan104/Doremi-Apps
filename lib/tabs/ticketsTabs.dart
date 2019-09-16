@@ -14,7 +14,7 @@ class _TicketTabsPageState extends State<TicketTabsPage> {
   @override
   Widget build(BuildContext context) {
 
-    double width = MediaQuery.of(context).size.width - 10;
+    double width = MediaQuery.of(context).size.width ;
     double height = MediaQuery.of(context).size.height;
 
 
@@ -58,13 +58,17 @@ class _TicketTabsPageState extends State<TicketTabsPage> {
               Column(
                   children: <Widget>[
                     Container(
+                      padding: EdgeInsets.all(10),
                       child: Column(
                         children: <Widget>[
                           Card(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15.0),
+                            ),
                             elevation: 1,
                             child: Container(
                                 padding: EdgeInsets.all(0),
-                                width: MediaQuery.of(context).size.width,
+                                width: MediaQuery.of(context).size.width - 20,
                                 height: 140,
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -73,10 +77,10 @@ class _TicketTabsPageState extends State<TicketTabsPage> {
                                       decoration: BoxDecoration(
                                         border: Border(
                                             right: BorderSide(width: 1.0, color: Colors.red.withOpacity(0.6) 
-                                          )
+                                        )
                                       )),
                                       height: 140,
-                                      width: MediaQuery.of(context).size.width/3,
+                                      width: (MediaQuery.of(context).size.width/3) - 20,
                                       padding: EdgeInsets.only(right: 5),
                                       child : Image.asset("assets/images/photo1.png",fit : BoxFit.cover ,) 
                                     ),
@@ -153,6 +157,9 @@ class _TicketTabsPageState extends State<TicketTabsPage> {
                               ),
                           ),
                           Card(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15.0),
+                            ),
                             elevation: 1,
                             child: Container(
                                 padding: EdgeInsets.all(0),
@@ -168,7 +175,7 @@ class _TicketTabsPageState extends State<TicketTabsPage> {
                                           )
                                       )),
                                       height: 140,
-                                      width: MediaQuery.of(context).size.width/3,
+                                      width: (MediaQuery.of(context).size.width/3)-20,
                                       padding: EdgeInsets.only(right: 5),
                                       child : Image.asset("assets/images/photo2.png",fit : BoxFit.cover ,) 
                                     ),
