@@ -7,6 +7,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:izievent/partials/drawer.dart';
 import 'package:izievent/settings/HexColor.dart';
 import 'package:izievent/tabs/accountTabs.dart';
+import 'package:izievent/tabs/giftTabs.dart';
 import 'package:izievent/tabs/homeTabs.dart';
 import 'package:izievent/tabs/seachTabs.dart';
 import 'package:izievent/tabs/ticketsTabs.dart';
@@ -14,7 +15,8 @@ import 'package:line_icons/line_icons.dart';
 
 
 class HomePage extends StatefulWidget {
-  HomePage({Key key}) : super(key: key);
+  final int index; 
+  HomePage({Key key, this.index}) : super(key: key);
 
   _HomePageState createState() => _HomePageState();
 }
@@ -45,7 +47,11 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
 
+    
+    
+
     return DefaultTabController(
+      initialIndex: ( widget.index != null ) ? widget.index : 0,
         length: 5,
         child: Scaffold(
           key: _scaffoldKey,
@@ -75,7 +81,7 @@ class _HomePageState extends State<HomePage> {
               HomeTabsPage(),
               SeachTabsPage(),
               TicketTabsPage(),
-              Icon(Icons.directions_bike),
+              GiftTabsPage(),
               AccountTabsPage(),
             ],
           ),

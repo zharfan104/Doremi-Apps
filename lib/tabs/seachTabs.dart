@@ -3,6 +3,7 @@ import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:izievent/settings/HexColor.dart';
 import 'package:izievent/view/detailsevent.dart';
+import 'package:izievent/view/organizer.dart';
 
 class SeachTabsPage extends StatefulWidget {
   SeachTabsPage({Key key}) : super(key: key);
@@ -87,6 +88,12 @@ class _SeachTabsPageState extends State<SeachTabsPage> {
                               borderRadius: BorderRadius.circular(24),
                             ),
                             onPressed: () async {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => OrganizerDetailsPage()
+                                  )
+                              );
                             },
                             padding: EdgeInsets.all(15),
                             color: Colors.transparent,
@@ -204,7 +211,7 @@ class _SeachTabsPageState extends State<SeachTabsPage> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10.0),
                   ),
-                  elevation: 1,
+                  elevation: 2,
                   child: Container(
                       padding: EdgeInsets.all(0),
                       width: w - 30,

@@ -2,7 +2,9 @@
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:izievent/settings/HexColor.dart';
+import 'package:izievent/tabs/accountTabs.dart';
 import 'package:izievent/view/home.dart';
+import 'package:izievent/view/subscription.dart';
 import 'globals.dart' as globals;
 
 class DrawerCustom extends StatefulWidget {
@@ -97,7 +99,7 @@ class _DrawerCustomState extends State<DrawerCustom> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => HomePage()
+                          builder: (context) => HomePage(index: 2,)
                         )
                     );
                   },
@@ -141,7 +143,7 @@ class _DrawerCustomState extends State<DrawerCustom> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => HomePage()
+                          builder: (context) => HomePage(index: 3,)
                         )
                     );
                   },
@@ -188,7 +190,7 @@ class _DrawerCustomState extends State<DrawerCustom> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => HomePage()
+                          builder: (context) => SubscriptionPage()
                         )
                     );
                   },
@@ -212,7 +214,7 @@ class _DrawerCustomState extends State<DrawerCustom> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => HomePage()
+                          builder: (context) => HomePage(index: 4,)
                         )
                     );
                   },

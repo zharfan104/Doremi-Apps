@@ -3,7 +3,9 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:izievent/partials/drawer.dart';
 import 'package:izievent/settings/HexColor.dart';
+import 'package:izievent/view/organizer.dart';
 
 
 class DetailsEvent extends StatefulWidget {
@@ -44,6 +46,7 @@ class _DetailsEventState extends State<DetailsEvent> {
 
     return Scaffold(
       key: _scaffoldKey,
+      drawer: DrawerCustom(),
       body: Stack(
         children: <Widget>[
           Container(
@@ -220,7 +223,15 @@ class _DetailsEventState extends State<DetailsEvent> {
                                         alignment: Alignment.centerLeft,
                                         child : FlatButton(
                                           onPressed: (){},
-                                          child: Text('Organizer Details', style: TextStyle(fontSize: 15, color : Colors.blue,),
+                                          child: GestureDetector(
+                                            onTap: () => Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) => OrganizerDetailsPage()
+                                                )
+                                            ),
+                                            child : Text('Organizer Details', style: TextStyle(fontSize: 15, color : Colors.blue,),
+                                          )
                                         )
                                       ),
                                     )
@@ -274,9 +285,13 @@ class _DetailsEventState extends State<DetailsEvent> {
               backgroundColor: Colors.transparent,
               elevation: 0,
               centerTitle: true,
+              leading: IconButton(
+                onPressed: () => Navigator.of(context).pop(),
+                icon: Icon(Icons.arrow_back),
+              ),
               actions: <Widget>[
                 Padding(
-                  padding: EdgeInsets.only(right: 20),
+                  padding: EdgeInsets.only(right: 0),
                   child: IconButton(
                     onPressed: () =>  _scaffoldKey.currentState.openDrawer(),
                     icon: Icon(Icons.menu, size: 30, color: Colors.white,),

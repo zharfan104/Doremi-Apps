@@ -1,35 +1,54 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:intro_views_flutter/UI/page_indicator_buttons.dart';
-import 'package:intro_views_flutter/UI/pager_indicator.dart';
+import 'package:izievent/partials/drawer.dart';
 import 'package:izievent/settings/HexColor.dart';
-import 'package:flutter_icons/flutter_icons.dart';
-import 'package:izievent/view/detailsevent.dart';
-import 'package:izievent/view/filter.dart';
+import 'package:easy_dialog/easy_dialog.dart';
 import 'package:line_icons/line_icons.dart';
 
-class HomeTabsPage extends StatefulWidget {
-  HomeTabsPage({Key key}) : super(key: key);
+import 'detailsevent.dart';
 
-  _HomeTabsPageState createState() => _HomeTabsPageState();
+
+class OrganizerDetailsPage extends StatefulWidget {
+  OrganizerDetailsPage({Key key}) : super(key: key);
+
+  _OrganizerDetailsPageState createState() => _OrganizerDetailsPageState();
 }
 
-class _HomeTabsPageState extends State<HomeTabsPage> {
+class _OrganizerDetailsPageState extends State<OrganizerDetailsPage> {
 
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   double w;
   double h;
-  
+
   @override
   Widget build(BuildContext context) {
 
-    double width = MediaQuery.of(context).size.width - 10;
+    double width = MediaQuery.of(context).size.width - 40 ;
     double height = MediaQuery.of(context).size.height;
-
     w = width;
     h = height;
 
-    return Stack(
+    return Scaffold(
+      key: _scaffoldKey,
+      appBar: AppBar(
+        backgroundColor: HexColor("C52127"),
+        elevation: 0,
+        actions: <Widget>[
+          Padding(
+            padding: EdgeInsets.only(right: 0),
+            child: IconButton(
+              onPressed: () =>  _scaffoldKey.currentState.openDrawer(),
+              icon: Icon(Icons.menu, size: 30, color: Colors.white,),
+            )
+          )
+        ],
+        leading: IconButton(
+          onPressed: () => Navigator.of(context).pop(),
+          icon: Icon(Icons.arrow_back),
+        ),
+      ),
+      drawer: DrawerCustom(),
+      body: Stack(
         children: <Widget>[
           Container(
             height: height/2,
@@ -39,130 +58,127 @@ class _HomeTabsPageState extends State<HomeTabsPage> {
             ),
           ),
           ListView(
+            padding: EdgeInsets.only(left: 10, right: 10),
             children: <Widget>[
-              SizedBox(height: 20),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Container(
-                    padding: EdgeInsets.only(left: 20, right: 20),            
-                    child: Align(
-                      alignment: AlignmentDirectional.center,
-                      child: Text('Popular Now', style: TextStyle(
-                        fontSize: 39,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white
-                      ),),
-                    ),
-                  ),
-                  IconButton(
-                    color: Colors.white.withOpacity(1),
-                    onPressed: (){
-                       Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => FilterPage()
-                            )
-                        );
-                    },
-                    icon: Icon(FontAwesomeIcons.filter, size: 25, color: Colors.white,),
-                  )
-                ],
-              ),
-              SizedBox(height: 15,),
               Container(
-                decoration: BoxDecoration(
-                  borderRadius: new BorderRadius.all(Radius.circular(50)),
-                ),
-                height: 250,
-                child: new Swiper(
-                  onTap: (index){
-                    Navigator.push(
-                      context,
-                        MaterialPageRoute(
-                          builder: (context) => DetailsEvent()
-                        )
-                    );
-                  },
-                  layout: SwiperLayout.DEFAULT,
-                  loop: true,
-                  autoplay: true,
-                  itemWidth: 255,
-                  viewportFraction: 0.8,
-                  itemBuilder: (BuildContext context,int index){
-                    return Container(
-                        decoration: BoxDecoration(
-                          boxShadow: [
-                            BoxShadow(
-                              color : Colors.transparent.withOpacity(0.1),
-                              offset: Offset(10, 0),
-                              blurRadius: 100
-                            )
-                          ]
-                        ),
-                        padding: EdgeInsets.all(0),
-                        child: Column(
-                          children: <Widget>[
-                            Stack(
-                              children: <Widget>[
-                                new Image.asset("assets/images/photo$index.png",fit: BoxFit.cover, width: 255,),
-                                Positioned(
-                                  top: 10,
-                                  right: 10,
-                                  child: Icon(FontAwesomeIcons.heart, color: Colors.white,),
-                                ),
-                              ],
-                            ),
-                            Container(
-                              padding: EdgeInsets.all(5),
-                              height: 60,
-                              width: 255,
-                              color: Colors.white,
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                children: <Widget>[
-                                  Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: <Widget>[
-                                      Expanded(child : Text('New York Party Week', style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold, color: Colors.black))),
-                                      Container(
-                                        child: Row(
-                                        children: <Widget>[
-                                          Icon(LineIcons.map_marker),
-                                          Text('New York, USA', style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: Colors.black)),
-                                        ],
-                                      ))
-                                    ],
-                                  ),
-                                  Divider(
-                                    height: 10,
-                                    color: Colors.black,
-                                  ),
-                                  Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: <Widget>[
-                                      Expanded( child: Text('15', style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold, color: HexColor("C52127")))),
-                                      Expanded( child :Text('Sep', style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold))),
-                                    ],
-                                  )
-                                ],
-                              )
-                            )
-                          ],
-                        )                      
-                    );
-                  },
-                  itemCount: 2,
-                  pagination: new SwiperPagination(
-                    margin: EdgeInsets.only(top: 10)
-                  ),
-                  // control: new SwiperControl(),
+                padding: EdgeInsets.only(left: 10, right: 10),
+                child: Align(
+                  alignment: AlignmentDirectional.topStart,
+                  child: Text('Organizer', style: TextStyle(
+                    fontSize: 39,
+                    fontFamily: "BwNistaGeometricDEMO", 
+                    fontWeight: FontWeight.w900,
+                    color: HexColor("ffffff")
+                  ),),
                 ),
               ),
-              SizedBox(height: 20,),
+              SizedBox(height: 30,),
+              Container(
+                padding: EdgeInsets.all(10),
+                child : Column(
+                  children: <Widget>[
+                    Row(
+                      children: <Widget>[
+                        Container( 
+                          decoration: BoxDecoration(
+                            borderRadius: new BorderRadius.all(Radius.circular(10)),
+                            color: Colors.white,
+                          ),
+                          height: 100,
+                          width: width/4,
+                          child: Image.asset("assets/images/logo1.png"),
+                        ),
+                        SizedBox(width: 20,),
+                        Container(
+                          padding: EdgeInsets.all(10),
+                          height: 100,
+                          width: (width/4)*2.3,
+                          child: Center( child : Text('Long Meadow', style : TextStyle(
+                            fontSize: 36,
+                            fontFamily: "BwNistaGeometricDEMO", 
+                            fontWeight: FontWeight.w900,
+                            color: HexColor("ffffff")
+                          ))),
+                        )
+                      ],
+                    ),
+                    SizedBox(height: 20,),
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: new BorderRadius.all(Radius.circular(10)),
+                        color: Colors.black,
+
+                      ),
+                      padding: EdgeInsets.all(10),
+                      child : Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[
+                          Container(     
+                            width: (width/2)-46,
+                            height: 80,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: <Widget>[
+                                Text('1', style : TextStyle(
+                                  fontSize: 40,
+                                  fontFamily: "BwNistaGeometricDEMO", 
+                                  fontWeight: FontWeight.w900,
+                                  color: Colors.grey
+                                )),
+                                Text('Upcoming', style : TextStyle(
+                                  fontSize: 15,
+                                  fontFamily: "BwNistaGeometricDEMO", 
+                                  fontWeight: FontWeight.w900,
+                                  color: Colors.grey
+                                ))
+                              ],
+                            )
+                          ),
+                          Container(
+                            width: (width/2)-40,
+                            height: 100,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: <Widget>[
+                                Text('38', style : TextStyle(
+                                  fontSize: 40,
+                                  fontFamily: "BwNistaGeometricDEMO", 
+                                  fontWeight: FontWeight.w900,
+                                  color: Colors.grey
+                                )),
+                                Text('Past', style : TextStyle(
+                                  fontSize: 15,
+                                  fontFamily: "BwNistaGeometricDEMO", 
+                                  color: Colors.grey
+                                ))
+                              ],
+                            )
+                          )
+                        ],
+                      )
+                    ),
+                    SizedBox(height: 10,),
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: new BorderRadius.all(Radius.circular(10)),
+                        color: Colors.transparent,
+
+                      ),
+                      padding: EdgeInsets.all(20),
+                      child : Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[
+                          Image.asset("assets/images/sociaux.png")
+                        ],
+                      )
+                    )
+                  ]
+                )
+              ),
+              Divider(thickness: 2,),
               Container(
                 padding: EdgeInsets.all(20),
-                child: Text('Trending', style: TextStyle(
+                child: Text('UpComing', style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                       color: Colors.black87,//HexColor("676767")
@@ -171,12 +187,12 @@ class _HomeTabsPageState extends State<HomeTabsPage> {
               Column(
                 children: _getEvents(),
               )
+              
             ]
           )
         ],
+      ),
     );
-
-    
   }
 
   List<Widget> _getEvents() { 
@@ -303,5 +319,5 @@ class _HomeTabsPageState extends State<HomeTabsPage> {
     }
     return listings;
   }
-
+  
 }
