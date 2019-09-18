@@ -11,7 +11,7 @@
         android:label="izievent"
         android:icon="@mipmap/launcher_icon">
         <meta-data android:name="com.google.android.geo.API_KEY"
-               android:value="AIzaSyAItobebMTJdKyryQg1x7rdfHcZ3ve_Nt8"/>
+               android:value="API_KEY"/>
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
