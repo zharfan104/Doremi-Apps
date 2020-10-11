@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:izievent/settings/HexColor.dart';
+import 'package:doremi/settings/HexColor.dart';
 
 class LoginPage extends StatefulWidget {
   LoginPage({Key key}) : super(key: key);
@@ -19,7 +19,7 @@ class _LoginPageState extends State<LoginPage> {
       appBar: AppBar(
         backgroundColor: HexColor("FFF2F2"),
       ),
-      body: ListView(
+      body:  ListView(physics: BouncingScrollPhysics(),
         padding: EdgeInsets.only(left: 20, right: 20),
         children: <Widget>[
           SizedBox(height: 20,),

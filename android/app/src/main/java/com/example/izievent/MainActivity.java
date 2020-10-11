@@ -1,4 +1,4 @@
-package com.example.izievent;
+package com.example.doremi;
 
 import android.os.Bundle;
 import io.flutter.app.FlutterActivity;

@@ -1,3 +1,3 @@
-library izievents.globals;
+library doremis.globals;
 
 String menuSelected = "Home";
